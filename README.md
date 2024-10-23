@@ -1,5 +1,7 @@
 # Instalación de Metasploitable 3 en Ubuntu 24.04
+## [English](README_eng.md)
 
+---
 ### Inicio
 Para usar Metasploitable 3, vamos a necesitar hacer primero un par de cosas:
 * [Instalar Vagrant](https://developer.hashicorp.com/vagrant/install?product_intent=vagrant) 
@@ -21,12 +23,12 @@ sudo apt update && sudo apt install vagrant
 ```
 
 Ahora, creamos el directorio de [Metasploitable 3](https://github.com/rapid7/metasploitable3)
-```shell cpp title:"Creación de directorio"
+```shell
 mkdir metasploitable3-workspace
 ```
 
 Proseguimos entrando en el directorio y descargando los archivos con curl:
-```shell cpp title:"Descargamos los archivos"
+```shell
 cd metasploitable3-workspace
 
 curl -O https://raw.githubusercontent.com/rapid7/metasploitable3/master/Vagrantfile && vagrant up
@@ -38,17 +40,16 @@ Muy probablemente os salga el mismo error, pues no hemos configurado el archivo 
 
 > Primero tenemos que crear la ruta **/etc/vbox** con el archivo networks.conf, pues no están por defecto ni el directorio no el archivo.
 
-```shell title:"Creación de las network"
+```shell
 sudo mkdir /etc/vbox
 sudo nano /etc/vbox/networks.conf
 ```
 
-Para permitir el rango, en este caso la **red 172.28.0.0/16** (Para evitarnos problemas, ya que
-podríamos permitir solo la IP).
+Para permitir el rango, en este caso la **red 172.28.0.0/16** (Para evitarnos problemas, ya que podríamos permitir solo la IP).
 
-Introducimos lo siguiente:
+Introducimos lo siguiente en el archivo /etc/vbox/networks.conf:
 
-``` title:"networks.conf"
+```
 * 172.28.0.0/16
 * 192.168.56.0/24
 ```
@@ -56,10 +57,7 @@ Introducimos lo siguiente:
 > La 192.168.56.0 es la red para la máquina Windows, si no lo añadimos, nos dará otro error al hacer`vagrant up`
 > >**¡OJO! He cogido el rango en base a la dirección que me daba el error de la imagen anterior, también es obligatorio usar el * para indicar el comienzo del rango o la IP que vamos a declarar en el archivo de configuración**.
 
-Y volvemos a hacer un `vagrant up` en el directorio **metasploitable3-workspace**, al
-hacerlo, nos empezará a importar las máquinas tanto de Linux como de Windows
-vulnerables en VirtualBox. Al terminar, si vamos a VirtualBox, veremos las 2 máquinas
-importadas y en ejecución.
+Y volvemos a hacer un `vagrant up` en el directorio **metasploitable3-workspace**, al hacerlo, nos empezará a importar las máquinas tanto de Linux como de Windows vulnerables en VirtualBox. Al terminar, si vamos a VirtualBox, veremos las 2 máquinas importadas y en ejecución.
 
 ### Resultado
 ![imagen2](img/captura2.jpeg)
