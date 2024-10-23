@@ -1,5 +1,5 @@
 # Instalación de Metasploitable 3 en Ubuntu 24.04
-## [English](README_eng.md)
+## [English](https://github.com/JesusGonzalezAragon/metasploitable3-installation)
 
 ---
 ### Inicio
