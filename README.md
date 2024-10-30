@@ -45,12 +45,12 @@ sudo mkdir /etc/vbox
 sudo nano /etc/vbox/networks.conf
 ```
 
-Para permitir el rango, en este caso la **red 172.28.0.0/16** (Para evitarnos problemas, ya que podríamos permitir solo la IP).
+Para permitir el rango, en este caso la **red 172.28.128.0/24** (Para evitarnos problemas, ya que podríamos permitir solo la IP).
 
 Introducimos lo siguiente en el archivo /etc/vbox/networks.conf:
 
 ```
-* 172.28.0.0/16
+* 172.28.128.0/24
 * 192.168.56.0/24
 ```
 
